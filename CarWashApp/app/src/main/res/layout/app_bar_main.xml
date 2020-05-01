@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_exit_to_app_black_24dp"
+            android:layout_marginLeft="08dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/colorAccent"
+
+            />
+
+        <TextView
+            android:id="@+id/tvMainHead"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textScaleX="1"
+            android:textSize="16sp" />
+        <ImageView
+            android:id="@+id/right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_alignRight="@+id/tvMainHead"
+            android:layout_marginLeft="08dp"
+            android:layout_marginTop="5dp"
+
+            android:background="@drawable/ic_bluetooth_black_24dp" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/line"
+        android:layout_below="@+id/relative"
+        android:background="@color/colorAccent"
+        android:orientation="horizontal"></LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_height="160dp">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="15dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+      android:gravity="start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:gravity="start"
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date:  "
+            />
+        <TextView
+            android:textStyle="italic"
+            android:id="@+id/tvdate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blu"
+            android:text="600"
+            /></LinearLayout>
+        <LinearLayout
+           android:gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time:  "
+                />
+            <TextView
+                android:id="@+id/tvTime2"
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blu"
+                android:text="4:35 PM"
+                /></LinearLayout>
+
+</LinearLayout>
+
+
+        <LinearLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="385dp"
+            android:layout_height="1dp"
+            android:id="@+id/line"
+            android:layout_marginTop="4dp"
+            android:layout_below="@+id/relative"
+            android:background="@color/colorAccent"
+            android:orientation="horizontal"></LinearLayout>
+
+        <LinearLayout
+android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--Static-->
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Service Type: "
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vehcicle Type: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Make: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reg No: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount: "
+                    />
+
+            </LinearLayout>
+            <!--Dynamic-->
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvServiceType2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blu"
+                    android:text="Body Wash"
+                    />
+
+                <TextView
+                    android:id="@+id/tvVehicleType2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blu"
+                    android:text="Car"
+                    />
+
+                <TextView
+                    android:id="@+id/tvVehicleMake2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toyota"
+                    android:textColor="@color/blu" />
+
+                <TextView
+                    android:id="@+id/tvregNo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500"
+                    android:textColor="@color/blu" />
+
+                <TextView
+                    android:id="@+id/tvAmount2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blu"
+                    android:text="600"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!--    <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/black" />-->
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

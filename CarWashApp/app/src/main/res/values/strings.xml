@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Car Wash</string>
+    <string name="action_settings">Logout</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Car Wash</string>
+    <string name="nav_header_subtitle">car wash, oil change, car decoration</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Dashboard</string>
+    <string name="menu_dailyReport">Daily Report</string>
+    <string name="menu_Reportby2Dates">Report ByDate</string>
+
+    <string name="menu_reportBy2Date">Report ByDate</string>
+    <string name="menu_slideshow">Entry</string>
+    <string name="menu_ddailySummary">Daily Summary</string>
+    <string name="menu_partyRepot">Party Report</string>
+    <string name="menu_backup">BackUp</string>
+
+
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+
+    <string name="title_activity_login">Sign in</string>
+
+    <string name="prompt_email">Email</string>
+
+    <string name="prompt_password">Password</string>
+
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string-array name="_VehicleType">
+        <item>Car</item>
+        <item>Jeep</item>
+        <item>Bike</item>
+        <item>Coach</item>
+        <item>Bus</item>
+        <item>Truck</item>
+    </string-array>
+    <string-array name="_Party">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="_vehicleMake">
+        <item>Toyota</item>
+        <item>Honda</item>
+        <item>Suzuki</item>
+        <item>BMW</item>
+        <item>Faw</item>
+    </string-array>
+    <string-array name="_serviceType">
+        <item>Body Wash</item>
+        <item>Full Service </item>
+        <item>Clean Interior</item>
+        <item>Polish</item>
+        <item>Engine Oil</item>
+    </string-array>
+</resources>

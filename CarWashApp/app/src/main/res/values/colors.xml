@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#0891FF</color>
+    <color name="colorAccent">#0891FF</color>
+    <color name="colorAccent2">#decba4</color>
+    <color name="tr_red">#BA0C29</color>
+    <color name="colorAccent1"> #1094F7</color>
+    <color name="blutrans2"> #501094F7</color>
+    <color name="blutrans"> #991094F7</color>
+    <color name="yellow"> #FF9800</color>
+    <color name="green"> #09B76B</color>
+    <color name="orange"> #FFA500</color>
+    <color name="lightGray">#F5F5F5</color>
+    <color name="lightgGray">#E7E6E6</color>
+    <color name="blue">#4D7FB1</color>
+    <color name="colorPrimaryDark1">#1094F7</color>
+    <!--  <color name="colorPrimaryDark">#A9A9A9</color>-->
+    <color name="colorPrimary1">#ffffff</color>
+    <!-- <color name="colorAccent">#757575</color>-->
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="violet">#AB8CE4</color>
+    <color name="violet2">#7a69eb</color>
+    <color name="bl">#99E3DF</color>
+    <color name="red">#F90000</color>
+    <color name="grey">#6a6a6a</color>
+    <color name="greytr">#996a6a6a</color>
+    <color name="line">#A9A9A9</color>
+    <color name="dd">#E8E8E8</color>
+    <color name="ddd">#CFCFCF</color>
+    <color name="blu">#193554</color>
+</resources>
