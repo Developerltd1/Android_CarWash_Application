@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbCWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblBusiness">
+    <Key>
+      <PropertyRef Name="BusinessID" />
+    </Key>
+    <Property Name="BusinessID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <Property Name="isActiveDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ApprovedByUser_ID" Type="Int32" Nullable="false" />
+    <Property Name="ApprovedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="City_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblServices" Relationship="Self.FK_tblService_tblBusiness" FromRole="tblBusiness" ToRole="tblService" />
+  </EntityType>
+  <EntityType Name="tblService">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VehicleType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VehicleMake" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Party" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VehicleModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VehicleReg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Commision" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CurrentDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CurrentTime" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Business_ID" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tblBusiness" Relationship="Self.FK_tblService_tblBusiness" FromRole="tblService" ToRole="tblBusiness" />
+  </EntityType>
+  <Association Name="FK_tblService_tblBusiness">
+    <End Role="tblBusiness" Type="Self.tblBusiness" Multiplicity="1" />
+    <End Role="tblService" Type="Self.tblService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBusiness">
+        <PropertyRef Name="BusinessID" />
+      </Principal>
+      <Dependent Role="tblService">
+        <PropertyRef Name="Business_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbCWEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblBusinesses" EntityType="Self.tblBusiness" />
+    <EntitySet Name="tblServices" EntityType="Self.tblService" />
+    <AssociationSet Name="FK_tblService_tblBusiness" Association="Self.FK_tblService_tblBusiness">
+      <End Role="tblBusiness" EntitySet="tblBusinesses" />
+      <End Role="tblService" EntitySet="tblServices" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

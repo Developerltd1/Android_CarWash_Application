@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbCWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblBusiness">
+    <Key>
+      <PropertyRef Name="BusinessID" />
+    </Key>
+    <Property Name="BusinessID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessTitle" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImeNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EntryDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+    <Property Name="isActiveDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="ApprovedByUser_ID" Type="int" Nullable="false" />
+    <Property Name="ApprovedDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="City_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblService">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocalServiceID" Type="int" Nullable="false" />
+    <Property Name="ServiceType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VehicleType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VehicleMake" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Party" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VehicleModel" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VehicleReg" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Commision" Type="money" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CurrentDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="CurrentTime" Type="smalldatetime" Nullable="false" />
+    <Property Name="Business_ID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblService_tblBusiness">
+    <End Role="tblBusiness" Type="Self.tblBusiness" Multiplicity="1" />
+    <End Role="tblService" Type="Self.tblService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBusiness">
+        <PropertyRef Name="BusinessID" />
+      </Principal>
+      <Dependent Role="tblService">
+        <PropertyRef Name="Business_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="usp_InsertBusiness" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BusinessTitle" Type="varchar" Mode="In" />
+    <Parameter Name="ImeNumber" Type="varchar" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="ContactNo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_InsertService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocalServiceID" Type="bigint" Mode="In" />
+    <Parameter Name="ServiceType" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleType" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleMake" Type="varchar" Mode="In" />
+    <Parameter Name="Party" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleModel" Type="varchar" Mode="In" />
+    <Parameter Name="VehicleReg" Type="varchar" Mode="In" />
+    <Parameter Name="Commision" Type="money" Mode="In" />
+    <Parameter Name="Amount" Type="money" Mode="In" />
+    <Parameter Name="CustomerName" Type="varchar" Mode="In" />
+    <Parameter Name="Contact" Type="varchar" Mode="In" />
+    <Parameter Name="Comments" Type="varchar" Mode="In" />
+    <Parameter Name="Business_ID" Type="bigint" Mode="In" />
+  </Function>
+  <EntityContainer Name="dbCWModelStoreContainer">
+    <EntitySet Name="tblBusiness" EntityType="Self.tblBusiness" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblService" EntityType="Self.tblService" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblService_tblBusiness" Association="Self.FK_tblService_tblBusiness">
+      <End Role="tblBusiness" EntitySet="tblBusiness" />
+      <End Role="tblService" EntitySet="tblService" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

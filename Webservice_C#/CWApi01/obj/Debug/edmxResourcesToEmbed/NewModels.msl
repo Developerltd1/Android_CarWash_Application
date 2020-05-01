@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbCWModelStoreContainer" CdmEntityContainer="dbCWEntitiesAqib">
+    <EntitySetMapping Name="tblBusinesses">
+      <EntityTypeMapping TypeName="dbCWModel.tblBusiness">
+        <MappingFragment StoreEntitySet="tblBusiness">
+          <ScalarProperty Name="BusinessID" ColumnName="BusinessID" />
+          <ScalarProperty Name="BusinessTitle" ColumnName="BusinessTitle" />
+          <ScalarProperty Name="ImeNumber" ColumnName="ImeNumber" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isActiveDate" ColumnName="isActiveDate" />
+          <ScalarProperty Name="ApprovedByUser_ID" ColumnName="ApprovedByUser_ID" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+          <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_InsertBusiness" FunctionName="dbCWModel.Store.usp_InsertBusiness" />
+    <EntitySetMapping Name="tblServices">
+      <EntityTypeMapping TypeName="dbCWModel.tblService">
+        <MappingFragment StoreEntitySet="tblService">
+          <ScalarProperty Name="LocalServiceID" ColumnName="LocalServiceID" />
+          <ScalarProperty Name="Business_ID" ColumnName="Business_ID" />
+          <ScalarProperty Name="CurrentTime" ColumnName="CurrentTime" />
+          <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Commision" ColumnName="Commision" />
+          <ScalarProperty Name="VehicleReg" ColumnName="VehicleReg" />
+          <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
+          <ScalarProperty Name="Party" ColumnName="Party" />
+          <ScalarProperty Name="VehicleMake" ColumnName="VehicleMake" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_InsertService" FunctionName="dbCWModel.Store.usp_InsertService" />
+  </EntityContainerMapping>
+</Mapping>

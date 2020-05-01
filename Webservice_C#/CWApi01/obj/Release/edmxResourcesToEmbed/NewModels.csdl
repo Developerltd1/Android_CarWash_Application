@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbCWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblBusiness">
+    <Key>
+      <PropertyRef Name="BusinessID" />
+    </Key>
+    <Property Name="BusinessID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <Property Name="isActiveDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ApprovedByUser_ID" Type="Int32" Nullable="false" />
+    <Property Name="ApprovedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="City_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblServices" Relationship="dbCWModel.FK_tblService_tblBusiness" FromRole="tblBusiness" ToRole="tblService" />
+  </EntityType>
+  <EntityContainer Name="dbCWEntitiesAqib" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblBusinesses" EntityType="Self.tblBusiness" />
+    <FunctionImport Name="usp_InsertBusiness">
+      <Parameter Name="BusinessTitle" Mode="In" Type="String" />
+      <Parameter Name="ImeNumber" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="ContactNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblServices" EntityType="dbCWModel.tblService" />
+    <AssociationSet Name="FK_tblService_tblBusiness" Association="dbCWModel.FK_tblService_tblBusiness">
+      <End Role="tblBusiness" EntitySet="tblBusinesses" />
+      <End Role="tblService" EntitySet="tblServices" />
+    </AssociationSet>
+    <FunctionImport Name="usp_InsertService">
+      <Parameter Name="LocalServiceID" Mode="In" Type="Int64" />
+      <Parameter Name="ServiceType" Mode="In" Type="String" />
+      <Parameter Name="VehicleType" Mode="In" Type="String" />
+      <Parameter Name="VehicleMake" Mode="In" Type="String" />
+      <Parameter Name="Party" Mode="In" Type="String" />
+      <Parameter Name="VehicleModel" Mode="In" Type="String" />
+      <Parameter Name="VehicleReg" Mode="In" Type="String" />
+      <Parameter Name="Commision" Mode="In" Type="Decimal" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+      <Parameter Name="CustomerName" Mode="In" Type="String" />
+      <Parameter Name="Contact" Mode="In" Type="String" />
+      <Parameter Name="Comments" Mode="In" Type="String" />
+      <Parameter Name="Business_ID" Mode="In" Type="Int64" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="tblService">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleMake" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Party" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleModel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleReg" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Commision" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CurrentTime" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Business_ID" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tblBusiness" Relationship="dbCWModel.FK_tblService_tblBusiness" FromRole="tblService" ToRole="tblBusiness" />
+    <Property Name="LocalServiceID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblService_tblBusiness">
+    <End Type="dbCWModel.tblBusiness" Role="tblBusiness" Multiplicity="1" />
+    <End Type="dbCWModel.tblService" Role="tblService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBusiness">
+        <PropertyRef Name="BusinessID" />
+      </Principal>
+      <Dependent Role="tblService">
+        <PropertyRef Name="Business_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

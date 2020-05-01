@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbCWModelStoreContainer" CdmEntityContainer="dbCWEntities1">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="dbCWModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBusinesses">
+      <EntityTypeMapping TypeName="dbCWModel.tblBusiness">
+        <MappingFragment StoreEntitySet="tblBusiness">
+          <ScalarProperty Name="BusinessID" ColumnName="BusinessID" />
+          <ScalarProperty Name="BusinessTitle" ColumnName="BusinessTitle" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isActiveDate" ColumnName="isActiveDate" />
+          <ScalarProperty Name="ApprovedByAdminID" ColumnName="ApprovedByAdminID" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+          <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBusinessUsers">
+      <EntityTypeMapping TypeName="dbCWModel.tblBusinessUser">
+        <MappingFragment StoreEntitySet="tblBusinessUser">
+          <ScalarProperty Name="BusinessUserID" ColumnName="BusinessUserID" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserContact" ColumnName="UserContact" />
+          <ScalarProperty Name="UserAddress" ColumnName="UserAddress" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Business_ID" ColumnName="Business_ID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="DeActiveDate" ColumnName="DeActiveDate" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblServices">
+      <EntityTypeMapping TypeName="dbCWModel.tblService">
+        <MappingFragment StoreEntitySet="tblService">
+          <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+          <ScalarProperty Name="LocalServiceID" ColumnName="LocalServiceID" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="VehicleMake" ColumnName="VehicleMake" />
+          <ScalarProperty Name="Party" ColumnName="Party" />
+          <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
+          <ScalarProperty Name="VehicleReg" ColumnName="VehicleReg" />
+          <ScalarProperty Name="Commision" ColumnName="Commision" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
+          <ScalarProperty Name="CurrentTime" ColumnName="CurrentTime" />
+          <ScalarProperty Name="BusinessUser_ID" ColumnName="BusinessUser_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="dbCWModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="dbCWModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="dbCWModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="dbCWModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbCWModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="dbCWModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbCWModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="dbCWModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="dbCWModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="usp_InsertBusiness" FunctionName="dbCWModel.Store.usp_InsertBusiness" />
+    <FunctionImportMapping FunctionImportName="usp_InsertNewUser" FunctionName="dbCWModel.Store.usp_InsertNewUser" />
+    <FunctionImportMapping FunctionImportName="usp_InsertPayment" FunctionName="dbCWModel.Store.usp_InsertPayment" />
+    <FunctionImportMapping FunctionImportName="usp_InsertService" FunctionName="dbCWModel.Store.usp_InsertService" />
+    <FunctionImportMapping FunctionImportName="usp_InsertUser" FunctionName="dbCWModel.Store.usp_InsertUser" />
+    <FunctionImportMapping FunctionImportName="usp_UpdatePayment" FunctionName="dbCWModel.Store.usp_UpdatePayment" />
+    <FunctionImportMapping FunctionImportName="usp_UpdateUser" FunctionName="dbCWModel.Store.usp_UpdateUser" />
+  </EntityContainerMapping>
+</Mapping>
