@@ -56,14 +56,9 @@ ImageView mv;
 
         btnSignIn = findViewById(R.id.btnSignIn);
         udm_btnClick();
-
     }
 
-
     private void udm_btnClick() {
-
-
-
         //TODO Sign-in btn
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.O)
@@ -106,9 +101,6 @@ ImageView mv;
                     }
                     else {
                         Toast.makeText(ActivitySignIn.this, "Username/Password is Not Valid! Try Again.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ActivitySignIn.this,MainActivity.class);
-                        startActivity(intent);
-                        finish();
                     }
 
                     //region REGION-> Fragment

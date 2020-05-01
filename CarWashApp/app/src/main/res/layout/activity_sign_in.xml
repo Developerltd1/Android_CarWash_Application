@@ -29,7 +29,6 @@
             android:textSize="20sp" />
 
         <EditText
-            android:text="aqib"
             android:id="@+id/etUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +45,6 @@
             android:textSize="12sp" />
 
         <EditText
-            android:text="12345"
             android:id="@+id/etPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

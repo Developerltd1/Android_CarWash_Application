@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -266,7 +267,7 @@ public class Registration extends AppCompatActivity {
             HttpClient httpclient = new DefaultHttpClient();
             String responseStr = "";
             int responseCode = 0;
-            HttpPost HttpPost = new HttpPost("http://192.168.43.112:8080/api/Business/PostBusiness");
+            HttpPost HttpPost = new HttpPost("http://www.subdom.somee.com/api/Business/PostBusiness");
             try {
 
                 HttpPost.setEntity(new StringEntity(PostBusines(MBusiness.getBusinessTitle(),MBusiness.getImeiNo(),MBusiness.getUserName(),MBusiness.getPassword(),MBusiness.getContactNo()), "UTF-8"));
@@ -301,9 +302,11 @@ public class Registration extends AppCompatActivity {
             Log.d("response001", response);
             dialog.dismiss();
 
-            if (response != null) {
+            if (response != null)
+            {
                 JSONObject jsonObject = null;
-                try {
+                try
+                {
                     jsonObject = new JSONObject(response);
                     //status = jsonObject.getString("status");
                     //if (status=="1"){
@@ -311,19 +314,26 @@ public class Registration extends AppCompatActivity {
                     SERVERbusinessUserID = jsonObject.getString("businessUserID");
                         Log.e("businessID001",""+SERVERbusinessID);
                         Log.e("SERVERbusinessUserID",""+SERVERbusinessUserID);
-                    if(Integer.parseInt(SERVERbusinessID)>0){
-                        Toast.makeText(Registration.this, " Registeration Successfully", Toast.LENGTH_SHORT).show();
-                    if (objBus.insertBusiness(MBusiness,Integer.parseInt(SERVERbusinessUserID),Integer.parseInt(SERVERbusinessUserID)) == true) {
-                        Toast.makeText(Registration.this, " Registeration Successfully!", Toast.LENGTH_SHORT).show();
-                      }
+                    if(Integer.parseInt(SERVERbusinessID)>0)
+                    {
+                        if(objBus.insertBusiness(MBusiness,Integer.parseInt(SERVERbusinessID),Integer.parseInt(SERVERbusinessUserID)) == true)
+                        {
+                            Toast.makeText(Registration.this, " Registeration Successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Registration.this,ActivitySignIn.class);
+                            startActivity(intent);
+                            finish();
+                        }
                     }
-                    else {
+                    else
+                    {
                         Toast.makeText(Registration.this, " Something went Wrong! Registeration Not Successfully!", Toast.LENGTH_SHORT).show();
                     }
                     /*}else if (status=="0"){
                         Toast.makeText(Registration.this, "Not Registerd", Toast.LENGTH_SHORT).show();
                     }*/
-                } catch (JSONException e) {
+                }
+                catch (JSONException e)
+                {
                     e.printStackTrace();
                 }
             }

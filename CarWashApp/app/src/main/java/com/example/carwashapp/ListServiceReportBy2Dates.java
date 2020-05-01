@@ -136,7 +136,7 @@ public class ListServiceReportBy2Dates extends Fragment implements AdapterView.O
             @Override
             public void onClick(View v) {
                 _allDataShow();
-                Toast.makeText(getActivity(), "Show Me", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Result", Toast.LENGTH_SHORT).show();
             }
         });
     }

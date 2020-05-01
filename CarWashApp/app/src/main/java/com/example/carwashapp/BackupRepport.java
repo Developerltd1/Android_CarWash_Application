@@ -184,7 +184,7 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
             URL url;
             HttpURLConnection httpURLConnection;
             try {
-                url = new URL("https://testapi.11sol.com/api/Service/PostServices");
+                url = new URL("http://www.subdom.somee.com/api/Service/PostServices");
                 httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setConnectTimeout(30000);
                 httpURLConnection.setReadTimeout(30000);
