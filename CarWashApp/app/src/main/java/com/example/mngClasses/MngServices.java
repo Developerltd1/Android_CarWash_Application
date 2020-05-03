@@ -48,7 +48,7 @@ public class MngServices {
                 DbConnect.COLUMN_SERVICES_VehicleModel + "," + DbConnect.COLUMN_SERVICES_VehicleReg + "," + DbConnect.COLUMN_SERVICES_Commision + "," + DbConnect.COLUMN_SERVICES_Amount + "," + DbConnect.COLUMN_SERVICES_CustomerName + "," + DbConnect.COLUMN_SERVICES_Contact + "," + DbConnect.COLUMN_SERVICES_Comments +"," + DbConnect.COLUMN_SERVICES_BusinessUser_ID +
                 ")VALUES('"+ mS.getvDate() + "','"+ mS.getvTime()+"','"+mS.getServiceType()+"','"+mS.getVehicleType()+"','"+mS.getVehicleMake()+
                 "','"+mS.getParty()+"', '"+mS.getisUpload()+"' ,'"+mS.getVehicleModel()+"','"+mS.getVehicleReg()+"','"+mS.getCommision()+"','"+mS.getAmount()+
-                "','"+mS.getCustomerName()+"','"+mS.getContact()+"','"+mS.getComments()+"','"+mS.getBusiness_ID()+"' )");
+                "','"+mS.getCustomerName()+"','"+mS.getContact()+"','"+mS.getComments()+"','"+mS.getSERVICE_UserBusiness_ID()+"' )");
 
         closeCon();
             if(SQLite.toString() == "-1")
@@ -68,10 +68,10 @@ public class MngServices {
             return true;
     }
     //TODO Display_AllServiceForBackup
-    public ArrayList<Services> getAllServiceForBackup(int paraBusIDgetfromDB /*,int paraIsUpload*/) {
+    public ArrayList<Services> getAllServiceForBackup(/*int paraBusIDgetfromDB ,*/ int paraIsUpload) {
         //DbConnect.COLUMN_SERVICES_IsUpload = false;
                                  //LocalServiceID
-        String Queryy = String.format("SELECT VehicleID,ServiceType,VehicleType,VehicleMake,Party,VehicleModel,VehicleReg,CustomerName,Contact,Comments,Business_ID,Commision,Amount FROM tblService where Business_ID = '"+paraBusIDgetfromDB+"' ");
+        String Queryy = String.format("SELECT VehicleID,ServiceType,VehicleType,VehicleMake,Party,VehicleModel,VehicleReg,CustomerName,Contact,Comments,Commision,Amount,SERVICESBusinessUser_ID FROM tblService   WHERE IsUpload = '"+paraIsUpload+"' ");
         openCon();
         Cursor c = SQLite.rawQuery(Queryy, null);
 
@@ -89,9 +89,10 @@ public class MngServices {
                 servies.setCustomerName(c.getString(7));
                 servies.setContact(c.getString(8));
                 servies.setComments(c.getString(9));
-                servies.setBusiness_ID(c.getInt(10));
+               // servies.setBusiness_ID(c.getInt(10));  ?
+                servies.setCommision(c.getString(10));
                 servies.setAmount(c.getString(11));
-                servies.setCommision(c.getString(12));
+                servies.setSERVICE_UserBusiness_ID(c.getInt(12));
 
                 lstmService.add(servies);
             }while (c.moveToNext());
@@ -220,7 +221,7 @@ public class MngServices {
     //TODO Display_Service_WherePARTYS
     public int[] getService_WherePARTY1() {
 
-        Cursor c = SQLite.rawQuery("Select COUNT("+DbConnect.COLUMN_SERVICES_VehicleID+"), SUM("+DbConnect.COLUMN_SERVICES_Amount+"), SUM("+DbConnect.COLUMN_SERVICES_Commision+"),  (Amount-Commision)  from " + DbConnect.TABLE_SERVICES+ " WHERE "+DbConnect.COLUMN_SERVICES_Party+"= 1" , null);
+        Cursor c = SQLite.rawQuery("Select COUNT("+DbConnect.COLUMN_SERVICES_VehicleID+"), SUM("+DbConnect.COLUMN_SERVICES_Amount+"), SUM("+DbConnect.COLUMN_SERVICES_Commision+"),  (Amount+Commision)  from " + DbConnect.TABLE_SERVICES+ " WHERE "+DbConnect.COLUMN_SERVICES_Party+"= 1" , null);
         int[]  arr = new int[4];
         if (c.moveToFirst()) {
 
@@ -236,7 +237,7 @@ public class MngServices {
     }
     public int[] getService_WherePARTY2() {
 
-        Cursor c = SQLite.rawQuery("Select COUNT("+DbConnect.COLUMN_SERVICES_VehicleID+"), SUM("+DbConnect.COLUMN_SERVICES_Amount+"), SUM("+DbConnect.COLUMN_SERVICES_Commision+"),  (Amount-Commision)  from " + DbConnect.TABLE_SERVICES+ " WHERE "+DbConnect.COLUMN_SERVICES_Party+"= 2" , null);
+        Cursor c = SQLite.rawQuery("Select COUNT("+DbConnect.COLUMN_SERVICES_VehicleID+"), SUM("+DbConnect.COLUMN_SERVICES_Amount+"), SUM("+DbConnect.COLUMN_SERVICES_Commision+"),  (Amount+Commision)  from " + DbConnect.TABLE_SERVICES+ " WHERE "+DbConnect.COLUMN_SERVICES_Party+"= 2" , null);
         int[]  arr = new int[4];
         if (c.moveToFirst()) {
 
@@ -252,7 +253,7 @@ public class MngServices {
     }
     public int[] getService_WherePARTY3() {
 
-        String Query3 = String.format("Select COUNT(VehicleID),SUM(Amount), SUM(Commision), Amount-Commision from tblService where Party = '3'");
+        String Query3 = String.format("Select COUNT(VehicleID),SUM(Amount), SUM(Commision), Amount+Commision from tblService where Party = '3'");
         Cursor c = SQLite.rawQuery( Query3, null);
         int[]  arr = new int[4];
         if (c.moveToFirst()) {
@@ -269,7 +270,7 @@ public class MngServices {
     }
     public int[] getService_WherePARTY4() {
 
-        String Query4 = String.format("Select COUNT(VehicleID),SUM(Amount), SUM(Commision), Amount-Commision from tblService where Party = '4'");
+        String Query4 = String.format("Select COUNT(VehicleID),SUM(Amount), SUM(Commision), Amount+Commision from tblService where Party = '4'");
 
         Cursor c = SQLite.rawQuery(Query4 , null);
         int[]  arr = new int[4];
@@ -287,7 +288,7 @@ public class MngServices {
     }
     public int[] getService_WherePARTY5() {
 
-        String Query5 = String.format("Select COUNT(VehicleID),SUM(Amount), SUM(Commision), Amount-Commision from tblService where Party = '5'");
+        String Query5 = String.format("Select COUNT(VehicleID),SUM(Amount), SUM(Commision), Amount+Commision from tblService where Party = '5'");
 
         Cursor c = SQLite.rawQuery(Query5 , null);
         int[]  arr = new int[4];

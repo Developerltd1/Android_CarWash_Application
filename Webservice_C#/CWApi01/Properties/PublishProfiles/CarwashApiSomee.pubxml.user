@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\AQIB\Desktop\Smoee\Api</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\AQIB\Desktop\Smoee</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/HelpPage/HelpPage.css">
@@ -52,7 +52,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/15/2019 19:47:56</publishTime>
     </File>
     <File Include="bin/CWApi01.dll">
-      <publishTime>05/02/2020 01:09:37</publishTime>
+      <publishTime>05/03/2020 23:06:20</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/15/2019 19:50:42</publishTime>
@@ -154,7 +154,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/15/2019 19:47:56</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/01/2020 21:39:30</publishTime>
+      <publishTime>05/03/2020 21:41:09</publishTime>
     </File>
   </ItemGroup>
 </Project>

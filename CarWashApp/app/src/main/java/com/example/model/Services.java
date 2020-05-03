@@ -17,15 +17,15 @@ public class Services {
     public  String  Comments;
     public  String  vDate;
     public  String  vTime;
-    public  int  Business_ID;
+    public  int  SERVICE_UserBusiness_ID;
     public  int  isUpload;
 
-    public int getBusiness_ID() {
-        return Business_ID;
+    public int getSERVICE_UserBusiness_ID() {
+        return SERVICE_UserBusiness_ID;
     }
 
-    public void setBusiness_ID(int business_ID) {
-        Business_ID = business_ID;
+    public void setSERVICE_UserBusiness_ID(int SERVICE_UserBusiness_ID) {
+        this.SERVICE_UserBusiness_ID = SERVICE_UserBusiness_ID;
     }
 
     public int getisUpload() {
@@ -48,7 +48,7 @@ public class Services {
     }
 */
 
-    public Services(int vehicleID, String vehicleMake, String vehicleModel, String vehicleReg, String vehicleType, String customerName, String contact, String serviceType, String commision, String amount, String party, String comments, String vDate, String vTime) {
+    public Services(int vehicleID, String vehicleMake, String vehicleModel, String vehicleReg, String vehicleType, String customerName, String contact, String serviceType, String commision, String amount, String party, String comments, String vDate, String vTime,int SERVICE_UserBusiness_ID) {
         LocalServiceID = vehicleID;
         VehicleMake = vehicleMake;
         VehicleModel = vehicleModel;
@@ -63,6 +63,7 @@ public class Services {
         Comments = comments;
         this.vDate = vDate;
         this.vTime = vTime;
+        this.SERVICE_UserBusiness_ID = SERVICE_UserBusiness_ID;
     }
 
 

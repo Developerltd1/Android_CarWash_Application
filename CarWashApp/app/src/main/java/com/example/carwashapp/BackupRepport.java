@@ -60,7 +60,6 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         objServices = new MngServices(getActivity());
        udmBackupMethod(view);
 
@@ -76,7 +75,6 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
                }
            }
        });
-
     }
 
     private void udmBackupMethod(View view) {
@@ -119,7 +117,7 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
                 coment = String.valueOf(dataInList.get(counter).getComments());
                 amount = String.valueOf(dataInList.get(counter).getAmount());
                 commision = String.valueOf(dataInList.get(counter).getCommision());
-                B_ID =  String.valueOf(dataInList.get(counter).getBusiness_ID());//
+                B_ID =  String.valueOf(dataInList.get(counter).getSERVICE_UserBusiness_ID());//
 
                 HashMap<String, String> map = new HashMap<>();
                 Services s = new Services();
@@ -135,7 +133,7 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
                 map.put("Comments", coment);
                 map.put("Amount", amount);
                 map.put("Commision", commision);
-                map.put("Business_ID", B_ID);
+                map.put("BusinessUser_ID", B_ID);
 
                 new BackupRepport.ApiSetting(map).execute();
                 // "Update tblService set IsUpload = 1 where LocalServiceID = localSID"
@@ -184,7 +182,7 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
             URL url;
             HttpURLConnection httpURLConnection;
             try {
-                url = new URL("https://testapi.11sol.com/api/Service/PostServices");
+                url = new URL("http://www.subdom.somee.com/api/Service/PostServices");
                 httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setConnectTimeout(30000);
                 httpURLConnection.setReadTimeout(30000);

@@ -27,36 +27,31 @@
             />
 
         <EditText
-            android:layout_marginTop="70dp"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:hint="Title"
-            android:text="Title"
             android:id="@+id/edRegTitle"
-            />
-        <EditText
             android:layout_width="250dp"
-            android:text="User"
             android:layout_height="wrap_content"
-            android:hint="User Name"
-            android:id="@+id/edRegUserName"
-            />
+            android:layout_marginTop="70dp"
+            android:hint="Title" />
+
         <EditText
-            android:text="pass"
-            android:inputType="textPassword"
+            android:id="@+id/edRegUserName"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="User Name" />
+
+        <EditText
+            android:id="@+id/edRegPassword"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="Password"
-            android:id="@+id/edRegPassword"
-            />
+            android:inputType="textPassword" />
+
         <EditText
-            android:text="0333"
+            android:id="@+id/edRegConactNo"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="Contact No"
-            android:id="@+id/edRegConactNo"
-            android:inputType="phone"
-            />
+            android:inputType="phone" />
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
