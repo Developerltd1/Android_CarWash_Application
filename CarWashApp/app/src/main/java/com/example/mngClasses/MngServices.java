@@ -68,10 +68,10 @@ public class MngServices {
             return true;
     }
     //TODO Display_AllServiceForBackup
-    public ArrayList<Services> getAllServiceForBackup(int paraBusIDgetfromDB /*,int paraIsUpload*/) {
+    public ArrayList<Services> getAllServiceForBackup(/*int paraBusIDgetfromDB ,*/ int paraIsUpload) {
         //DbConnect.COLUMN_SERVICES_IsUpload = false;
                                  //LocalServiceID
-        String Queryy = String.format("SELECT VehicleID,ServiceType,VehicleType,VehicleMake,Party,VehicleModel,VehicleReg,CustomerName,Contact,Comments,Commision,Amount,SERVICESBusinessUser_ID FROM tblService   WHERE SERVICESBusinessUser_ID = '"+paraBusIDgetfromDB+"' ");
+        String Queryy = String.format("SELECT VehicleID,ServiceType,VehicleType,VehicleMake,Party,VehicleModel,VehicleReg,CustomerName,Contact,Comments,Commision,Amount,SERVICESBusinessUser_ID FROM tblService   WHERE IsUpload = '"+paraIsUpload+"' ");
         openCon();
         Cursor c = SQLite.rawQuery(Queryy, null);
 

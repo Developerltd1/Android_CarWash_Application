@@ -59,7 +59,7 @@
             android:inputType="textPassword"
             android:padding="10dp"
 
-            android:text="pass"
+            android:text="aaa"
             android:textColorHint="#6a6a6a"
             android:textSize="12sp" />
 

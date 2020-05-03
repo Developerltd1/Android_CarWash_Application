@@ -75,7 +75,6 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
                }
            }
        });
-
     }
 
     private void udmBackupMethod(View view) {
@@ -84,7 +83,7 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
         recyclerViewIDBackUp.setHasFixedSize(true);
         recyclerViewIDBackUp.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        sList =objServices.getAllServiceForBackup(MainActivity.keyBusID_Static);  // Assigning to List From MngServices Class
+        sList =objServices.getAllServiceForBackup(0);  // Assigning to List From MngServices Class
         adapter = new ServicesBackupAdapter(getActivity(),sList);
         recyclerViewIDBackUp.setAdapter(adapter);
     }
@@ -168,7 +167,7 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
 
             //todo for Realtime show data in Backup
             objServices.updateService(modelService);
-            sList= objServices.getAllServiceForBackup(MainActivity.keyBusID_Static);
+            sList= objServices.getAllServiceForBackup(0);
             adapter = new ServicesBackupAdapter(getActivity(),sList);
             recyclerViewIDBackUp.setAdapter(adapter);
 
