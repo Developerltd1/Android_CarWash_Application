@@ -112,57 +112,62 @@ public class ActivityHome extends Fragment  implements AdapterView.OnItemSelecte
         tvDate.setText(currentDate2);
 
         //TODO Insert
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        btnSave.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
-        try {
-          MngServices objService = new MngServices(getActivity());
-          //if(_spMake.length() != 0 || _spService.length() != 0 || _edtvehicleModel.length() != 0 || _edtVreg.length() != 0 || _edtCustomerName.length() != 0 || _edtContact.length() != 0 || _edtAmount.length() != 0 || _edtParty.length() != 0) {
-         //_edtComment = edtComment.getText().toString();
+            public void onClick(View v)
+            {
+                try
+                {
+                  MngServices objService = new MngServices(getActivity());
+                  //if(_spMake.length() != 0 || _spService.length() != 0 || _edtvehicleModel.length() != 0 || _edtVreg.length() != 0 || _edtCustomerName.length() != 0 || _edtContact.length() != 0 || _edtAmount.length() != 0 || _edtParty.length() != 0) {
+                 //_edtComment = edtComment.getText().toString();
 
-          mService.setvDate(tvDate.getText().toString());
-          mService.setvTime(tvTime.getText().toString());
-           mService.setServiceType(spService.getSelectedItem().toString());
-           mService.setVehicleType(spVehicleType.getSelectedItem().toString());
-           mService.setVehicleMake(spMake.getSelectedItem().toString());
-           mService.setParty(spParty.getSelectedItem().toString());
-              mService.setVehicleModel(edtvehicleModel.getText().toString());
-              mService.setVehicleReg(edtVreg.getText().toString());
-              mService.setCommision(edtCommision.getText().toString());
-              mService.setAmount(edtAmount.getText().toString());
-              mService.setCustomerName(edtCustomerName.getText().toString());
-              mService.setContact(edtContact.getText().toString());
-              mService.setComments(edtComment.getText().toString());
-              mService.setisUpload(0);
+                   mService.setvDate(tvDate.getText().toString());
+                   mService.setvTime(tvTime.getText().toString());
+                   mService.setServiceType(spService.getSelectedItem().toString());
+                   mService.setVehicleType(spVehicleType.getSelectedItem().toString());
+                   mService.setVehicleMake(spMake.getSelectedItem().toString());
+                   mService.setParty(spParty.getSelectedItem().toString());
+                   mService.setVehicleModel(edtvehicleModel.getText().toString());
+                   mService.setVehicleReg(edtVreg.getText().toString());
+                   mService.setCommision(edtCommision.getText().toString());
+                   mService.setAmount(edtAmount.getText().toString());
+                   mService.setCustomerName(edtCustomerName.getText().toString());
+                   mService.setContact(edtContact.getText().toString());
+                   mService.setComments(edtComment.getText().toString());
+                   mService.setisUpload(0);
+                   mService.setSERVICE_UserBusiness_ID(MainActivity.keyBusID_Static);
 
-        if (
-            edtAmount.getText().toString().trim().isEmpty() || edtAmount.getText().toString().trim() == null ||
-            edtvehicleModel.getText().toString().trim().isEmpty() || edtvehicleModel.getText().toString().trim() == null ||
-            edtVreg.getText().toString().trim().isEmpty() || edtVreg.getText().toString().trim() == null ||
-            edtCommision.getText().toString().trim().isEmpty() || edtCommision.getText().toString().trim() == null ||
-            edtCustomerName.getText().toString().trim().isEmpty() || edtCustomerName.getText().toString().trim() == null ||
-            edtContact.getText().toString().trim().isEmpty() || edtContact.getText().toString().trim() == null
-           ){
-                Toast.makeText(getActivity(), "Enter complete details", Toast.LENGTH_SHORT).show();
-            }
+                  if( edtAmount.getText().toString().trim().isEmpty() || edtAmount.getText().toString().trim() == null ||
+                      edtvehicleModel.getText().toString().trim().isEmpty() || edtvehicleModel.getText().toString().trim() == null ||
+                      edtVreg.getText().toString().trim().isEmpty() || edtVreg.getText().toString().trim() == null ||
+                      edtCommision.getText().toString().trim().isEmpty() || edtCommision.getText().toString().trim() == null ||
+                      edtCustomerName.getText().toString().trim().isEmpty() || edtCustomerName.getText().toString().trim() == null ||
+                      edtContact.getText().toString().trim().isEmpty() || edtContact.getText().toString().trim() == null  )
+                     {
+                         Toast.makeText(getActivity(), "Enter complete details", Toast.LENGTH_SHORT).show();
+                     }
+                     else if (objService.insertService(mService) == true)
+                     {
+                          //  objService.insertService(mService);
+                         Toast.makeText(getActivity(), "Data Saved Successfully ! ", Toast.LENGTH_SHORT).show();
 
-            else if (objService.insertService(mService) == true) {
-          //  objService.insertService(mService);
-         Toast.makeText(getActivity(), "Data Saved Successfully ! ", Toast.LENGTH_SHORT).show();
-
-        spService.setSelection(0);spVehicleType.setSelection(0);spMake.setSelection(0);spParty.setSelection(0);
-        edtvehicleModel.setText("");edtVreg.setText("");edtCommision.setText("");edtAmount.setText("");
-        edtCustomerName.setText("");edtContact.setText("");edtComment.setText("");
-    }
-            else {
-                 Toast.makeText(getActivity(), "Data Save Error", Toast.LENGTH_SHORT).show();
-    }
- //}else {
-   //  Toast.makeText(ActivityHome.this, "Please Fill All Fields", Toast.LENGTH_SHORT).show();}
-
-}catch(Exception e){
-    Toast.makeText(getActivity(), "Error: "+e, Toast.LENGTH_SHORT).show();
-}
+                         spService.setSelection(0);spVehicleType.setSelection(0);spMake.setSelection(0);spParty.setSelection(0);
+                         edtvehicleModel.setText("");edtVreg.setText("");edtCommision.setText("");edtAmount.setText("");
+                         edtCustomerName.setText("");edtContact.setText("");edtComment.setText("");
+                     }
+                     else
+                     {
+                          Toast.makeText(getActivity(), "Data Save Error", Toast.LENGTH_SHORT).show();
+                     }
+                //}else{
+                //  <></>oast.makeText(ActivityHome.this, "Please Fill All Fields", Toast.LENGTH_SHORT).show();}
+                }
+                catch(Exception e)
+                {
+                    Toast.makeText(getActivity(), "Error: "+e, Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

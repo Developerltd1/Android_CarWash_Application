@@ -60,7 +60,6 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         objServices = new MngServices(getActivity());
        udmBackupMethod(view);
 
@@ -85,7 +84,7 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
         recyclerViewIDBackUp.setHasFixedSize(true);
         recyclerViewIDBackUp.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        sList =objServices.getAllServiceForBackup(0);  // Assigning to List From MngServices Class
+        sList =objServices.getAllServiceForBackup(MainActivity.keyBusID_Static);  // Assigning to List From MngServices Class
         adapter = new ServicesBackupAdapter(getActivity(),sList);
         recyclerViewIDBackUp.setAdapter(adapter);
     }
@@ -119,7 +118,7 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
                 coment = String.valueOf(dataInList.get(counter).getComments());
                 amount = String.valueOf(dataInList.get(counter).getAmount());
                 commision = String.valueOf(dataInList.get(counter).getCommision());
-                B_ID =  String.valueOf(dataInList.get(counter).getBusiness_ID());//
+                B_ID =  String.valueOf(dataInList.get(counter).getSERVICE_UserBusiness_ID());//
 
                 HashMap<String, String> map = new HashMap<>();
                 Services s = new Services();
@@ -135,7 +134,7 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
                 map.put("Comments", coment);
                 map.put("Amount", amount);
                 map.put("Commision", commision);
-                map.put("Business_ID", B_ID);
+                map.put("BusinessUser_ID", B_ID);
 
                 new BackupRepport.ApiSetting(map).execute();
                 // "Update tblService set IsUpload = 1 where LocalServiceID = localSID"
@@ -169,7 +168,7 @@ public class BackupRepport extends Fragment implements AdapterView.OnItemSelecte
 
             //todo for Realtime show data in Backup
             objServices.updateService(modelService);
-            sList= objServices.getAllServiceForBackup(0);
+            sList= objServices.getAllServiceForBackup(MainActivity.keyBusID_Static);
             adapter = new ServicesBackupAdapter(getActivity(),sList);
             recyclerViewIDBackUp.setAdapter(adapter);
 

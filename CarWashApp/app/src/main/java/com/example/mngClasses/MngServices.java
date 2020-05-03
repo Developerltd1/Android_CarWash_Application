@@ -48,7 +48,7 @@ public class MngServices {
                 DbConnect.COLUMN_SERVICES_VehicleModel + "," + DbConnect.COLUMN_SERVICES_VehicleReg + "," + DbConnect.COLUMN_SERVICES_Commision + "," + DbConnect.COLUMN_SERVICES_Amount + "," + DbConnect.COLUMN_SERVICES_CustomerName + "," + DbConnect.COLUMN_SERVICES_Contact + "," + DbConnect.COLUMN_SERVICES_Comments +"," + DbConnect.COLUMN_SERVICES_BusinessUser_ID +
                 ")VALUES('"+ mS.getvDate() + "','"+ mS.getvTime()+"','"+mS.getServiceType()+"','"+mS.getVehicleType()+"','"+mS.getVehicleMake()+
                 "','"+mS.getParty()+"', '"+mS.getisUpload()+"' ,'"+mS.getVehicleModel()+"','"+mS.getVehicleReg()+"','"+mS.getCommision()+"','"+mS.getAmount()+
-                "','"+mS.getCustomerName()+"','"+mS.getContact()+"','"+mS.getComments()+"','"+mS.getBusiness_ID()+"' )");
+                "','"+mS.getCustomerName()+"','"+mS.getContact()+"','"+mS.getComments()+"','"+mS.getSERVICE_UserBusiness_ID()+"' )");
 
         closeCon();
             if(SQLite.toString() == "-1")
@@ -71,7 +71,7 @@ public class MngServices {
     public ArrayList<Services> getAllServiceForBackup(int paraBusIDgetfromDB /*,int paraIsUpload*/) {
         //DbConnect.COLUMN_SERVICES_IsUpload = false;
                                  //LocalServiceID
-        String Queryy = String.format("SELECT VehicleID,ServiceType,VehicleType,VehicleMake,Party,VehicleModel,VehicleReg,CustomerName,Contact,Comments,Business_ID,Commision,Amount FROM tblService where Business_ID = '"+paraBusIDgetfromDB+"' ");
+        String Queryy = String.format("SELECT VehicleID,ServiceType,VehicleType,VehicleMake,Party,VehicleModel,VehicleReg,CustomerName,Contact,Comments,Commision,Amount,SERVICESBusinessUser_ID FROM tblService   WHERE SERVICESBusinessUser_ID = '"+paraBusIDgetfromDB+"' ");
         openCon();
         Cursor c = SQLite.rawQuery(Queryy, null);
 
@@ -89,9 +89,10 @@ public class MngServices {
                 servies.setCustomerName(c.getString(7));
                 servies.setContact(c.getString(8));
                 servies.setComments(c.getString(9));
-                servies.setBusiness_ID(c.getInt(10));
+               // servies.setBusiness_ID(c.getInt(10));  ?
+                servies.setCommision(c.getString(10));
                 servies.setAmount(c.getString(11));
-                servies.setCommision(c.getString(12));
+                servies.setSERVICE_UserBusiness_ID(c.getInt(12));
 
                 lstmService.add(servies);
             }while (c.moveToNext());

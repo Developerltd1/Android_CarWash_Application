@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar;
     MngServices objServices;
     private boolean exit = false;
-
+    public static int keyBusID_Static;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity
 
         //get the current intent
         Intent intent = getIntent();
-        String bID = intent.getStringExtra("keyBusID") ;
+        String keyBusIDStr = intent.getStringExtra("keyBusID");
+        keyBusID_Static = Integer.parseInt(keyBusIDStr);
 
     }
 

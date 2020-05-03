@@ -86,9 +86,10 @@ ImageView mv;
 
                 String[] arr = new String[4];
                 arr =  objSignin.getBusinesID_Title_UserName_fromDB(user.getText().toString(),pass.getText().toString());
-                    if(user.getText().toString().equals(arr[2]) && pass.getText().toString().equals(arr[3])){
+                    if(user.getText().toString().equals(arr[2]) && pass.getText().toString().equals(arr[3]))
+                    {
                      //To DashBoard
-                        int valueBusID = Integer.parseInt(arr[0]);
+                        String valueBusID = arr[0];
                         String valueBusTitle = arr[1];
                         String valueBusName = arr[2];
 
@@ -99,8 +100,9 @@ ImageView mv;
                             startActivity(intent);
                             finish();
                     }
-                    else {
-                        Toast.makeText(ActivitySignIn.this, "Username/Password is Not Valid! Try Again.", Toast.LENGTH_SHORT).show();
+                    else
+                    {
+                        Toast.makeText(ActivitySignIn.this, "Username/Password is Not Valid !", Toast.LENGTH_SHORT).show();
                     }
 
                     //region REGION-> Fragment
